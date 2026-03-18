@@ -1,9 +1,7 @@
-@import "tailwindcss/preflight";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
 @import "tailwindcss";
 
-/* Keep the rest of your custom code below */
+/* --- Your Custom Davis Lawn Styles Below --- */
+
 html {
   scroll-behavior: smooth;
 }
@@ -11,37 +9,6 @@ html {
 body {
   background-color: #000000;
   color: #ffffff;
-}
-
-@keyframes scan {
-  0% { transform: translateY(-100%); opacity: 0; }
-  50% { opacity: 1; }
-  100% { transform: translateY(400px); opacity: 0; }
-}
-
-.animate-scan {
-  animation: scan 3s linear infinite;
-}
-
-::selection {
-  background-color: #DFFF00;
-  color: #000;
-}
-
-/* Smooth Scrolling for the #quote anchor */
-html {
-  scroll-behavior: smooth;
-}
-
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
-}
-
-body {
-  background: rgb(var(--background-start-rgb));
-  color: rgb(var(--foreground-rgb));
 }
 
 /* Success Page Scanning Animation */
@@ -55,7 +22,6 @@ body {
   animation: scan 3s linear infinite;
 }
 
-/* Custom Selection Color (The Chartreuse Highlight) */
 ::selection {
   background-color: #DFFF00;
   color: #000;
