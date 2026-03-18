@@ -63,20 +63,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. THE DIFFERENTIATOR: SYSTEMATIC DOMINANCE */}
+      {/* 2. THE DIFFERENTIATOR: STRATEGIC DOMINANCE */}
       <section className="max-w-7xl mx-auto px-6 py-32 border-b border-white/5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div>
             <h2 className="text-5xl font-black uppercase italic mb-8 text-white">
-              THE <span className={secretMode ? "text-green-500" : "text-[#DFFF00]"}>STRATEGY</span> <br /> IS ABSOLUTE.
+              THE <span className={secretMode ? "text-green-500" : "text-[#DFFF00]"}>ANTI-BROKE</span> <br /> STRATEGY.
             </h2>
             <p className="text-neutral-400 text-lg mb-8 leading-relaxed font-medium">
-              Standard "mow-and-go" crews are built on luck. <span className="text-white font-bold underline decoration-[#DFFF00]">Davis Lawn Service</span> is built on a high-output maintenance protocol. We don't just cut; we optimize every square inch of the 405 sector.
+              Cheap crews cost more in the long run. They miss edges, they ghost your schedule, and they leave you finishing the job yourself. <span className="text-white font-bold underline decoration-[#DFFF00]">Davis Lawn Service</span> operates on an "Absolute Standard" protocol—we treat your property like a high-value asset, not a chore.
             </p>
+            
+            <div className="mb-12 p-6 border-l-4 border-[#DFFF00] bg-white/5">
+               <h4 className="font-black text-white text-sm uppercase tracking-widest mb-2 italic">00. THE SATURDAY PROTOCOL</h4>
+               <p className="text-neutral-500 text-sm font-bold">
+                 We know the value of your Saturday. You didn't work all week to spend your only 48 hours of freedom behind a mower in 100° Oklahoma heat. We reclaim your time; you keep the weekend.
+               </p>
+            </div>
+
             <ul className="space-y-6">
               {[
                 { t: "INDUSTRIAL HARDWARE", d: "High-velocity commercial units with surgical-grade blades." },
-                { t: "CLAY-SOIL INTELLIGENCE", d: "Custom cut-heights mapped to Oklahoma's specific heat and soil cycles." },
+                { t: "CLAY-SOIL INTELLIGENCE", d: "Custom cut-heights mapped to Oklahoma's specific heat cycles." },
                 { t: "SECTOR LOGISTICS", d: "Route-optimized dispatch for guaranteed uptime and zero schedule drift." }
               ].map((item, i) => (
                 <li key={i} className={`flex gap-4 border-l-2 pl-6 py-2 transition-colors ${
@@ -86,12 +94,13 @@ export default function Home() {
                     <h4 className={`font-black text-xs uppercase tracking-widest ${
                       secretMode ? "text-green-500" : "text-[#DFFF00]"
                     }`}>{item.t}</h4>
-                    <p className="text-neutral-500 text-sm font-bold uppercase tracking-tight">{item.d}</p>
+                    <p className="text-neutral-500 text-xs font-bold uppercase">{item.d}</p>
                   </div>
                 </li>
               ))}
             </ul>
           </div>
+
           <div className="relative group">
             <div className={`absolute inset-0 blur-3xl opacity-0 group-hover:opacity-100 transition-all duration-700 ${
               secretMode ? "bg-green-500/10" : "bg-[#DFFF00]/10"
@@ -134,25 +143,64 @@ export default function Home() {
       </section>
 
       {/* 4. FINAL DEPLOYMENT: THE QUOTE FORM */}
+     {/* 4. FINAL DEPLOYMENT: THE QUOTE FORM */}
       <section id="quote" className="max-w-7xl mx-auto px-6 py-32 scroll-mt-20">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          
+          {/* LEFT COLUMN: CONTACT INFO */}
           <div className="lg:col-span-2">
             <h2 className="text-6xl font-black uppercase italic leading-none mb-8 text-white">
               READY FOR <br /> <span className={secretMode ? "text-green-500" : "text-[#DFFF00]"}>DISPATCH?</span>
             </h2>
-            <p className="text-neutral-400 mb-8 font-bold text-lg leading-tight">
+            <p className="text-neutral-400 mb-8 font-bold text-lg leading-tight italic">
               Submit your mission parameters. Our command lead will verify the site and transmit a tactical quote within 4 hours.
             </p>
-            <div className={`p-6 border bg-opacity-5 ${
-              secretMode ? "border-green-900 bg-green-500" : "border-[#DFFF00]/20 bg-[#DFFF00]"
+            
+            <div className={`p-6 border transition-all duration-500 relative overflow-hidden group ${
+              secretMode 
+                ? "border-green-500/30 bg-green-500/5 shadow-[0_0_30px_rgba(34,197,94,0.1)]" 
+                : "border-[#DFFF00]/20 bg-[#DFFF00]/5 shadow-[0_0_30px_rgba(223,255,0,0.05)]"
             }`}>
-              <p className={`text-[10px] font-mono uppercase mb-2 ${
+              <div className={`absolute -right-4 -top-4 w-24 h-24 blur-3xl rounded-full opacity-20 animate-pulse ${
+                secretMode ? "bg-green-500" : "bg-[#DFFF00]"
+              }`} />
+
+              <p className={`text-[10px] font-mono uppercase mb-3 flex items-center gap-2 tracking-widest font-black ${
                 secretMode ? "text-green-500" : "text-[#DFFF00]"
-              }`}>Emergency Contact</p>
-              <p className="text-2xl font-black text-white">(405) 000-0000</p>
+              }`}>
+                <span className="relative flex h-2 w-2">
+                  <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+                    secretMode ? "bg-green-400" : "bg-[#DFFF00]"
+                  }`}></span>
+                  <span className={`relative inline-flex rounded-full h-2 w-2 ${
+                    secretMode ? "bg-green-500" : "bg-[#DFFF00]"
+                  }`}></span>
+                </span>
+                Direct Dispatch Signal
+              </p>
+              
+              <div className="flex items-center gap-4">
+                <div className={`p-3 rounded-lg border transition-colors ${
+                  secretMode ? "border-green-500/20 bg-green-500/10" : "border-[#DFFF00]/20 bg-[#DFFF00]/10"
+                }`}>
+                  <Target className={secretMode ? "text-green-500" : "text-[#DFFF00]"} size={24} />
+                </div>
+                <div>
+                  <a 
+                    href="tel:4052594688" 
+                    className="text-2xl font-black text-white tracking-tighter leading-none hover:text-[#DFFF00] transition-colors block"
+                  >
+                    (405) 259-4688
+                  </a>
+                  <p className="text-[9px] text-neutral-600 uppercase font-bold mt-1 tracking-widest">
+                    Voice // SMS // Secure_Line
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
+          {/* RIGHT COLUMN: THE FORM */}
           <div className={`lg:col-span-3 bg-neutral-900 border p-12 transition-all duration-700 ${
             secretMode ? "border-green-500/40 shadow-[0_0_50px_rgba(34,197,94,0.1)]" : "border-[#DFFF00]/40 shadow-[0_0_50px_rgba(223,255,0,0.1)]"
           }`}>
@@ -200,6 +248,26 @@ export default function Home() {
           secretMode ? "bg-green-900" : "bg-[#DFFF00]/20"
         }`} />
       </footer>
+
+      {/* SEO Local Business Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HomeAndConstructionBusiness",
+            "name": "Davis Lawn Service",
+            "telePhone": "+1-405-259-4688",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "17200 S Sunnylane Rd",
+              "addressLocality": "Norman",
+              "addressRegion": "OK",
+              "postalCode": "73071"
+            }
+          }),
+        }}
+      />
     </main>
   );
 }
