@@ -1,25 +1,16 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { Phone, Shield, Zap, Users, CheckCircle2 } from "lucide-react";
+import { Phone, Shield, Zap, Users, CheckCircle2, Crosshair, Target, Map } from "lucide-react";
 
 export default function Home() {
   const router = useRouter();
-  const [grassHeight, setGrassHeight] = useState(0);
   const [status, setStatus] = useState("");
-  const communityYards = 8; // Manual tracker for the 10th Yard Protocol
-
-  // Visual "Growth" Easter Egg
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setGrassHeight((prev) => (prev < 100 ? prev + 1 : 100));
-    }, 3000);
-    return () => clearInterval(interval);
-  }, []);
+  const [activeUnits, setActiveUnits] = useState(3);
 
   const handleQuote = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStatus("SYNCHRONIZING...");
+    setStatus("TRANSMITTING...");
     
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
@@ -34,122 +25,122 @@ export default function Home() {
       if (res.ok) {
         router.push('/success');
       } else {
-        setStatus("SIGNAL LOST. RETRY.");
+        setStatus("SIGNAL ERROR. RETRY.");
       }
     } catch (err) {
-      setStatus("CONNECTION ERROR.");
+      setStatus("OFFLINE. CHECK CONNECTION.");
     }
   };
 
   return (
     <main className="min-h-screen bg-black text-white selection:bg-[#DFFF00] selection:text-black font-sans">
       
-      {/* 1. MOBILE CALL ORB */}
+      {/* 1. EMERGENCY CONTACT ORB */}
       <div className="fixed bottom-8 right-8 z-[100] md:hidden">
-        <a href="tel:4055555555" className="flex items-center justify-center w-16 h-16 bg-[#DFFF00] rounded-full shadow-[0_0_30px_rgba(223,255,0,0.6)] animate-bounce">
+        <a href="tel:4055555555" className="flex items-center justify-center w-16 h-16 bg-[#DFFF00] rounded-full shadow-[0_0_30px_rgba(223,255,0,0.6)] animate-pulse">
           <Phone size={28} color="black" strokeWidth={3} />
         </a>
       </div>
 
-      {/* 2. HERO: INITIALIZATION */}
+      {/* 2. HERO: CENTRAL COMMAND */}
       <section className="relative pt-32 pb-20 px-6 text-center overflow-hidden border-b border-white/5">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-[#DFFF00]/5 blur-[120px] rounded-full opacity-50" />
         <div className="relative z-10">
           <div className="inline-block bg-white/5 border border-white/10 px-4 py-1 mb-8 rounded-full">
             <span className="text-[#DFFF00] text-[10px] font-black tracking-[0.4em] uppercase">
-              // OKLAHOMA CITY DEPOT : ONLINE
+              // DAVIS LAWN SERVICE : CENTRAL COMMAND
             </span>
           </div>
           <h1 className="text-6xl md:text-[9rem] font-black leading-[0.8] tracking-tighter mb-8 uppercase italic">
-            YARD <br /> <span className="text-[#DFFF00]">WARFARE.</span>
+            SCALED <br /> <span className="text-[#DFFF00]">PRECISION.</span>
           </h1>
-          <p className="max-w-2xl mx-auto text-neutral-400 font-bold text-lg mb-12">
-            Standard mowing is a commodity. Our 4-man elite crew is a <span className="text-white italic underline decoration-[#DFFF00]">strategy</span>.
+          <p className="max-w-2xl mx-auto text-neutral-400 font-bold text-lg mb-12 leading-relaxed">
+            Multiple units. One standard. <span className="text-white">Davis Lawn Service</span> coordinates elite property maintenance across the 405 with military-grade reliability.
           </p>
           <a href="#quote" className="inline-block bg-[#DFFF00] text-black px-12 py-6 font-black uppercase text-2xl hover:bg-white transition-all transform hover:-translate-y-1 shadow-2xl shadow-[#DFFF00]/20">
-            INITIALIZE QUOTE
+            INITIALIZE DISPATCH
           </a>
         </div>
       </section>
 
-      {/* 3. QUOTE CAPTURE NODE */}
+      {/* 3. QUOTE NODE */}
       <section id="quote" className="max-w-4xl mx-auto px-6 py-12 -mt-10 relative z-20">
         <div className="bg-neutral-900 border border-[#DFFF00]/30 p-8 shadow-2xl">
           <h3 className="text-xl font-black mb-6 uppercase italic flex items-center gap-2">
-            <Zap size={20} className="text-[#DFFF00]" /> Initialize Dispatch
+            <Target size={20} className="text-[#DFFF00]" /> Mission Parameters
           </h3>
           <form onSubmit={handleQuote} className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <input name="name" placeholder="CLIENT NAME" required className="bg-black border border-white/10 p-4 text-xs font-mono focus:border-[#DFFF00] outline-none" />
-            <input name="email" type="email" placeholder="EMAIL ADDRESS" required className="bg-black border border-white/10 p-4 text-xs font-mono focus:border-[#DFFF00] outline-none" />
-            <input name="address" placeholder="SERVICE ADDRESS (OKC)" required className="col-span-full bg-black border border-white/10 p-4 text-xs font-mono focus:border-[#DFFF00] outline-none" />
+            <input name="email" type="email" placeholder="CONTACT EMAIL" required className="bg-black border border-white/10 p-4 text-xs font-mono focus:border-[#DFFF00] outline-none" />
+            <input name="address" placeholder="SERVICE ADDRESS (OKC METRO)" required className="col-span-full bg-black border border-white/10 p-4 text-xs font-mono focus:border-[#DFFF00] outline-none" />
             <select name="service" className="col-span-full bg-black border border-white/10 p-4 text-xs font-mono focus:border-[#DFFF00] outline-none text-neutral-500">
-              <option>WEEKLY ELITE MOW</option>
-              <option>BI-WEEKLY MAINTENANCE</option>
-              <option>RED DIRT RESTORATION</option>
+              <option>WEEKLY ELITE MAINTENANCE</option>
+              <option>BI-WEEKLY RECON</option>
+              <option>FULL YARD RESTORATION</option>
             </select>
             <button type="submit" className="col-span-full bg-[#DFFF00] text-black font-black p-5 uppercase hover:bg-white transition-all">
-              {status || "DEPLOY CREW"}
+              {status || "DEPLOY UNIT"}
             </button>
           </form>
         </div>
       </section>
 
-      {/* 4. IMPACT TRACKER */}
-      <section className="max-w-4xl mx-auto px-6 py-12">
-        <div className="flex justify-between items-end mb-4">
-          <h4 className="text-xs font-black uppercase tracking-widest text-[#DFFF00]">Community Impact: 10th Yard Protocol</h4>
-          <span className="text-white font-mono text-xs">{communityYards}/10 YARDS</span>
+      {/* 4. ACTIVE SECTOR MONITOR */}
+      <section className="max-w-7xl mx-auto px-6 py-12">
+         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { s: "EDMOND", stat: "ACTIVE" },
+            { s: "MOORE", stat: "DEPLOYED" },
+            { s: "NICHOLS HILLS", stat: "STANDBY" },
+            { s: "THE VILLAGE", stat: "IN_TRANSIT" }
+          ].map((node, i) => (
+            <div key={i} className="border border-white/10 p-4 font-mono text-[10px] bg-neutral-900/20">
+              <span className="text-neutral-600 block mb-1">NODE_{node.s}</span>
+              <span className={node.stat === "ACTIVE" || node.stat === "DEPLOYED" ? "text-[#DFFF00]" : "text-neutral-400"}>
+                STATUS: {node.stat}
+              </span>
+            </div>
+          ))}
         </div>
-        <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden">
-          <div 
-            className="h-full bg-[#DFFF00] transition-all duration-1000" 
-            style={{ width: `${(communityYards / 10) * 100}%` }}
-          />
+      </section>
+
+      {/* 5. TACTICAL ADVANTAGE GRID */}
+      <section className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-white/5">
+        <div className="space-y-4">
+          <div className="text-[#DFFF00]"><Users size={32} /></div>
+          <h3 className="text-2xl font-black uppercase italic">Multi-Unit Split</h3>
+          <p className="text-neutral-500 text-sm leading-relaxed">
+            We deploy individual laborers across different sectors simultaneously. This logistics model ensures we cover more ground in OKC without sacrificing localized attention.
+          </p>
         </div>
-        <p className="mt-4 text-[10px] text-neutral-500 uppercase tracking-tighter">
-          Every 10th yard is donated to a local senior via <b>OKC Helping Hands</b>.
+        <div className="space-y-4">
+          <div className="text-[#DFFF00]"><Shield size={32} /></div>
+          <h3 className="text-2xl font-black uppercase italic">Owner-Verified</h3>
+          <p className="text-neutral-500 text-sm leading-relaxed">
+            Laborers execute the mission; the Davis Logistics Lead verifies the result. Every curb, edge, and blow-off is audited against our central standard.
+          </p>
+        </div>
+        <div className="space-y-4">
+          <div className="text-[#DFFF00]"><Zap size={32} /></div>
+          <h3 className="text-2xl font-black uppercase italic">Rapid Extraction</h3>
+          <p className="text-neutral-500 text-sm leading-relaxed">
+            Industrial-grade gear means we finish fast. No lingering trucks blocking your driveway for hours—just a professional, 15-minute strike.
+          </p>
+        </div>
+      </section>
+
+      {/* 6. COMMUNITY PROTOCOL */}
+      <section className="max-w-4xl mx-auto px-6 py-12 bg-neutral-900/30 border-y border-white/5 text-center">
+        <h4 className="text-xs font-black uppercase tracking-[0.4em] text-[#DFFF00] mb-4">The 10th Yard Protocol</h4>
+        <p className="text-sm text-neutral-400 max-w-lg mx-auto italic">
+          For every 10 residential units maintained, Davis Lawn Service donates a full service to a local senior via the OKC Helping Hands initiative.
         </p>
       </section>
 
-      {/* 5. KNOWLEDGE MODULE */}
-      <section className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-20 border-t border-white/5">
-        <div>
-          <h3 className="text-5xl font-black uppercase tracking-tighter mb-8 leading-none">
-            The <span className="text-[#DFFF00]">OKC Soil</span> Survival Guide
-          </h3>
-          <ul className="space-y-8">
-            <li className="flex gap-4">
-              <div className="text-[#DFFF00]"><Shield size={24} /></div>
-              <div>
-                <h5 className="font-black uppercase tracking-widest">Heat-Cycle Height Adjustment</h5>
-                <p className="text-neutral-500 text-sm">Blade elevation calibrated for 405 summer peaks.</p>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <div className="text-[#DFFF00]"><Users size={24} /></div>
-              <div>
-                <h5 className="font-black uppercase tracking-widest">4-Man Sync Protocol</h5>
-                <p className="text-neutral-500 text-sm">Military-grade efficiency. In and out in 15 minutes.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
-        
-        {/* MOBILE SYNC / QR */}
-        <div className="flex flex-col items-center justify-center p-12 bg-neutral-900/30 border border-white/5 relative group">
-          <p className="text-[10px] text-neutral-600 uppercase tracking-[0.4em] mb-6">// MOBILE SYNC</p>
-          <div className="relative w-40 h-40">
-             <div className="absolute inset-0 z-20 border border-[#DFFF00]/20 pointer-events-none group-hover:border-[#DFFF00] transition-colors" />
-             <img src="/lawn_qr.png" alt="QR" className="w-full h-full grayscale group-hover:grayscale-0 opacity-50 group-hover:opacity-100 transition-all" />
-          </div>
-          <p className="mt-6 text-[8px] font-mono text-neutral-500 uppercase tracking-widest">Scan to port to handheld</p>
-        </div>
-      </section>
-
-      {/* 6. FOOTER */}
+      {/* 7. FOOTER */}
       <footer className="py-20 bg-black text-center border-t border-white/5">
         <p className="text-[10px] font-mono text-neutral-700 uppercase tracking-[0.5em] mb-4">
-          Built on Kali // Hosted on Vercel // Grass: {grassHeight}%
+          Davis Lawn Service // Built on Kali // Metro-Wide Logistics
         </p>
         <div className="h-px w-12 bg-[#DFFF00]/30 mx-auto" />
       </footer>
