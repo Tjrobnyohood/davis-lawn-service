@@ -63,21 +63,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. THE DIFFERENTIATOR */}
+      {/* 2. THE DIFFERENTIATOR: SYSTEMATIC DOMINANCE */}
       <section className="max-w-7xl mx-auto px-6 py-32 border-b border-white/5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
           <div>
             <h2 className="text-5xl font-black uppercase italic mb-8 text-white">
-              THE <span className={secretMode ? "text-green-500" : "text-[#DFFF00]"}>STANDARD</span> <br /> IS TOTAL.
+              THE <span className={secretMode ? "text-green-500" : "text-[#DFFF00]"}>STRATEGY</span> <br /> IS ABSOLUTE.
             </h2>
-            <p className="text-neutral-400 text-lg mb-8 leading-relaxed">
-              Standard crews linger. They miss edges. They leave debris. <span className="text-white font-bold underline decoration-[#DFFF00]">Davis Lawn Service</span> operates on a 4-man sync protocol—multiple units deployed to hit your property from every angle at once. 
+            <p className="text-neutral-400 text-lg mb-8 leading-relaxed font-medium">
+              Standard "mow-and-go" crews are built on luck. <span className="text-white font-bold underline decoration-[#DFFF00]">Davis Lawn Service</span> is built on a high-output maintenance protocol. We don't just cut; we optimize every square inch of the 405 sector.
             </p>
             <ul className="space-y-6">
               {[
-                { t: "INDUSTRIAL HARDWARE", d: "Commercial-grade zero-turns with surgical blades." },
-                { t: "CLAY-SOIL INTELLIGENCE", d: "Custom cut-heights mapped to Oklahoma heat cycles." },
-                { t: "NO-LINGER EXTRACTION", d: "In and out in 15 minutes. Professional stealth." }
+                { t: "INDUSTRIAL HARDWARE", d: "High-velocity commercial units with surgical-grade blades." },
+                { t: "CLAY-SOIL INTELLIGENCE", d: "Custom cut-heights mapped to Oklahoma's specific heat and soil cycles." },
+                { t: "SECTOR LOGISTICS", d: "Route-optimized dispatch for guaranteed uptime and zero schedule drift." }
               ].map((item, i) => (
                 <li key={i} className={`flex gap-4 border-l-2 pl-6 py-2 transition-colors ${
                   secretMode ? "border-green-800" : "border-[#DFFF00]"
@@ -86,7 +86,7 @@ export default function Home() {
                     <h4 className={`font-black text-xs uppercase tracking-widest ${
                       secretMode ? "text-green-500" : "text-[#DFFF00]"
                     }`}>{item.t}</h4>
-                    <p className="text-neutral-500 text-sm">{item.d}</p>
+                    <p className="text-neutral-500 text-sm font-bold uppercase tracking-tight">{item.d}</p>
                   </div>
                 </li>
               ))}
@@ -98,10 +98,10 @@ export default function Home() {
             }`} />
             <div className="bg-neutral-900 border border-white/10 p-12 relative z-10">
               <BarChart3 size={48} className={secretMode ? "text-green-500" : "text-[#DFFF00]"} />
-              <h3 className="text-3xl font-black uppercase italic mb-4 text-white">LOGISTICS OVER LUCK.</h3>
-              <p className="text-neutral-500 mb-6">While others guess, we coordinate. Our 4-man labor force is split into specific tactical nodes across OKC to ensure guaranteed uptime and zero schedule drift.</p>
+              <h3 className="text-3xl font-black uppercase italic mb-4 text-white">SYSTEMS OVER LUCK.</h3>
+              <p className="text-neutral-500 mb-6 font-bold leading-tight">While others guess, we calibrate. Our operational framework ensures your property maintains peak curb-line dominance without the need for micromanagement.</p>
               <div className="text-[10px] font-mono text-neutral-700 tracking-[0.3em]">
-                // STATUS: SECTOR_DOMINANCE_ENABLED
+                // STATUS: OPERATIONAL_EXCELLENCE_ENABLED
               </div>
             </div>
           </div>
