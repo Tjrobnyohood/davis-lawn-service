@@ -1,0 +1,13 @@
+.BRAND VOICE: Aggressive Professionalism
+PRIMARY COLOR: #DFFF00 (Chartreuse / Safety Green)
+SECONDARY COLOR: #0A0A0A (Rich Black)
+
+CORE SLOGANS:
+1. "The Anti-Broke Strategy."
+2. "Stop Paying for Mowing. Start Investing in Curb Appeal."
+3. "4 Men. 20 Minutes. 1 Perfect Yard."
+
+PSYCHOLOGICAL TRIGGERS:
+- Use of "Deployment" instead of "Appointment."
+- Use of "Node" instead of "Partner."
+- Use of "SOP" (Standard Operating Procedure) for services.
