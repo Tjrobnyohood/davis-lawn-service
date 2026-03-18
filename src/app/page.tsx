@@ -46,7 +46,7 @@ export default function Home() {
     <main className="min-h-screen bg-neutral-950 text-white selection:bg-[#DFFF00] selection:text-black font-sans">
       
       {/* MOBILE FLOATING ACTION BUTTON */}
-      <div className="fixed bottom-8 right-8 z-[100] md:hidden">
+      <div className="fixed bottom-8 right-8 z-100 md:hidden">
         <a href="tel:4055555555" className="flex items-center justify-center w-16 h-16 bg-[#DFFF00] rounded-full shadow-[0_0_30px_rgba(223,255,0,0.6)] animate-bounce">
           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="black" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.28-2.28a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </a>
@@ -54,7 +54,7 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <section className="relative pt-32 pb-20 px-6 text-center overflow-hidden border-b border-white/5">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-[#DFFF00]/5 blur-[120px] rounded-full opacity-50" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-150 bg-[#DFFF00]/5 blur-[120px] rounded-full opacity-50" />
         <div className="relative z-10">
           <div className="inline-block bg-white/5 border border-white/10 px-4 py-1 mb-8 rounded-full">
             <span className="text-[#DFFF00] text-[10px] font-black tracking-[0.4em] uppercase">
