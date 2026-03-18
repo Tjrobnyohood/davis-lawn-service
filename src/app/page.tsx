@@ -74,10 +74,11 @@ export default function Home() {
               Cheap crews cost more in the long run. They miss edges, they ghost your schedule, and they leave you finishing the job yourself. <span className="text-white font-bold underline decoration-[#DFFF00]">Davis Lawn Service</span> operates on an "Absolute Standard" protocol—we treat your property like a high-value asset, not a chore.
             </p>
             
-            <div className="mb-12 p-6 border-l-4 border-[#DFFF00] bg-white/5">
+            <div className={`mb-12 p-6 border-l-4 bg-white/5 ${secretMode ? "border-green-800" : "border-[#DFFF00]"}`}>
                <h4 className="font-black text-white text-sm uppercase tracking-widest mb-2 italic">00. THE SATURDAY PROTOCOL</h4>
-               <p className="text-neutral-500 text-sm font-bold">
-                 We know the value of your Saturday. You didn't work all week to spend your only 48 hours of freedom behind a mower in 100° Oklahoma heat. We reclaim your time; you keep the weekend.
+               <p className="text-neutral-500 text-lg font-bold leading-tight">
+                 We know the value of your Saturday. <br />
+                 <span className="text-white">You keep the weekend. We’ll handle the dirt.</span>
                </p>
             </div>
 
