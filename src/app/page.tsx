@@ -114,11 +114,11 @@ export default function Home() {
           </p>
         </div>
         <div className="space-y-4">
-          <div className="text-[#DFFF00]"><Shield size={32} /></div>
-          <h3 className="text-2xl font-black uppercase italic">Owner-Verified</h3>
-          <p className="text-neutral-500 text-sm leading-relaxed">
-            Laborers execute the mission; the Davis Logistics Lead verifies the result. Every curb, edge, and blow-off is audited against our central standard.
-          </p>
+  <div className="text-[#DFFF00] tracking-tighter font-mono text-[10px]">// PROTOCOL_04</div>
+      <h3 className="text-2xl font-black uppercase italic text-white">Multi-Unit Sync</h3>
+        <p className="text-neutral-500 text-sm leading-relaxed">
+            Our logistics engine deploys specialized units across the <span className="text-white">405 Sector</span>. While our laborers execute the turf mission, every property remains under the direct oversight of the Davis logistics lead.
+        </p>
         </div>
         <div className="space-y-4">
           <div className="text-[#DFFF00]"><Zap size={32} /></div>
