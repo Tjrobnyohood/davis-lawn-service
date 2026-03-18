@@ -1,46 +1,111 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
 
-export const metadata = {
-  title: "Davis Lawn Service | OKC Elite Turf",
-  description: "Professional lawn maintenance and tactical yard warfare in Oklahoma City.",
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+// 1. DYNAMIC VIEWPORT CONFIG (Tactical Yellow Theme for Mobile)
+export const viewport: Viewport = {
+  themeColor: "#DFFF00",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
+// 2. SEARCH & SOCIAL METADATA (DAVIS.png Integration)
+export const metadata: Metadata = {
+  title: "Davis Lawn Service | Elite Property Maintenance OKC",
+  description: "Professional multi-unit lawn care dispatch. Specializing in high-precision turf management across Edmond, Moore, and the OKC Metro.",
+  keywords: ["Lawn Care OKC", "Mowing Edmond OK", "Davis Lawn Service", "Oklahoma City Yard Maintenance", "405 Lawn Care"],
+  authors: [{ name: "Davis Lawn Service" }],
+  metadataBase: new URL("https://davis-lawn-service.vercel.app"), // Replace with actual domain once live
+  
   openGraph: {
-    title: "Davis Lawn Service",
-    description: "Multi-unit dispatch for premium lawn care.",
+    title: "Davis Lawn Service // 405 Sector",
+    description: "Multi-unit dispatch for premium Oklahoma lawn care. Owner-verified quality.",
+    url: "https://davis-lawn-service.vercel.app",
+    siteName: "Davis Lawn Service",
     images: [
       {
-        url: "/DAVIS.png", // Ensure this is in your /public folder
+        url: "https://davis-lawn-service.vercel.app/og-image.png", // Your sharp contrasting metadata image
         width: 1200,
         height: 630,
-        alt: "Davis Lawn Service - Sharp Contrasting Turf Design",
+        alt: "Davis Lawn Service Tactical Turf Design",
       },
     ],
+    locale: "en_US",
+    type: "website",
   },
+  
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    apple: [
+      { url: "/icon.svg", sizes: "180x180", type: "image/svg+xml" },
+    ],
+  },
+
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className={`${inter.className} bg-neutral-950 text-white antialiased`}>
-        <nav className="border-b border-white/5 bg-neutral-950/80 backdrop-blur-md sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span className="text-[#DFFF00] font-black text-2xl tracking-tighter italic">
-              DAVIS<span className="text-white">LAWN</span>
-            </span>
-            <div className="hidden md:flex gap-8 text-[10px] font-black uppercase tracking-[0.2em]">
-              <a href="#services" className="hover:text-[#DFFF00] transition-all">Deployment</a>
-              <a href="#strategy" className="hover:text-[#DFFF00] transition-all">Strategy</a>
-              <a href="#partners" className="hover:text-[#DFFF00] transition-all">Ecosystem</a>
-            </div>
-          </div>
-        </nav>
+    <html lang="en" className="scroll-smooth">
+      <head>
+        {/* 3. GOOGLE LOCAL BUSINESS SCHEMA (SEO CRITICAL) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "HomeAndConstructionBusiness",
+              "name": "Davis Lawn Service",
+              "alternateName": "Davis Lawn OKC",
+              "description": "Professional lawn maintenance and tactical turf management in Oklahoma City.",
+              "url": "https://davis-lawn-service.vercel.app",
+              "telephone": "+14052594688", // Update with his real number
+              "priceRange": "$$",
+              "address": {
+                "@type": "17200 South Sunnylane Road, Norman, OK 73071",
+                "addressLocality": "Norman",
+                "addressRegion": "OK",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "35.4676",
+                "longitude": "-97.5164"
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                  "opens": "07:00",
+                  "closes": "19:00"
+                }
+              ],
+              "areaServed": ["Oklahoma City", "Edmond", "Moore", "The Village", "Nichols Hills"]
+            }),
+          }}
+        />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
+      >
         {children}
       </body>
     </html>
